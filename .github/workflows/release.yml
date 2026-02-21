@@ -59,7 +59,7 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.3
         with:
-          name: TBS-${{needs.version.outputs.version}}
+          name: Centurion-${{needs.version.outputs.version}}
           path: WPFUI\bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\
           if-no-files-found: error
                   
@@ -72,20 +72,20 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          path: TBS
-      
+          path: Centurion
+
       - name: Archive release
         run: |
-          cd TBS; zip -r "TBS-${{needs.version.outputs.version}}.zip" TBS-${{needs.version.outputs.version}}; cp -R "TBS-${{needs.version.outputs.version}}.zip" ../; cd ..
-      
-      
+          cd Centurion; zip -r "Centurion-${{needs.version.outputs.version}}.zip" Centurion-${{needs.version.outputs.version}}; cp -R "Centurion-${{needs.version.outputs.version}}.zip" ../; cd ..
+
+
       - name: Create release
         uses: ncipollo/release-action@v1.14.0
         with:
-          name: TBS-${{needs.version.outputs.version}}
+          name: Centurion-${{needs.version.outputs.version}}
           tag: ${{needs.version.outputs.version}}
           commit: main
-          artifacts: "TBS-${{needs.version.outputs.version}}.zip"
+          artifacts: "Centurion-${{needs.version.outputs.version}}.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             Please join our Discord server for more information: [https://discord.gg/mBa4f2K](https://discord.gg/mBa4f2K)
@@ -106,7 +106,7 @@ jobs:
           title: New release
           nodetail: true
           description: |
-            Version `TBS-${{needs.version.outputs.version}}`
+            Version `Centurion-${{needs.version.outputs.version}}`
             Click [here](https://github.com/${{ github.repository }}/releases/tag/${{needs.version.outputs.version}}) to download!
             
             **Changelog**:              
@@ -118,4 +118,4 @@ jobs:
       - name: Delete artifact
         uses: geekyeggo/delete-artifact@v5
         with:
-          name: TBS
+          name: Centurion
