@@ -41,8 +41,14 @@ namespace WPFUI.Views
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
             if (_isLoaded) return;
-            _isLoaded = false;
-            await ViewModel.LoadCommand.Execute();
+            try
+            {
+                await ViewModel.LoadCommand.Execute();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to initialize:\n{ex.Message}\n\nPlease check logs/crash.txt for details.", "Centurion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             _isLoaded = true;
         }
 
