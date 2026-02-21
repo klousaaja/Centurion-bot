@@ -20,9 +20,9 @@
                 StatusEnums.Starting => SplatColor.Orange,
                 StatusEnums.Pausing => SplatColor.Orange,
                 StatusEnums.Stopping => SplatColor.Orange,
-                StatusEnums.Offline => SplatColor.Black,
+                StatusEnums.Offline => SplatColor.Gray,
                 StatusEnums.Paused => SplatColor.Red,
-                _ => SplatColor.Black,
+                _ => SplatColor.Gray,
             };
         }
     }

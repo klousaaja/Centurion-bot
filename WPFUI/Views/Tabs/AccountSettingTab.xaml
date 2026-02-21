@@ -9,7 +9,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
-    <Grid  Background="#FFE5E5E5">
+    <Grid  Background="#0D0D0D">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -34,34 +34,34 @@
             <StackPanel>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Account information" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Account information" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <uc:TribeSelectorUc x:Name="Tribes" Text="Tribe" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Activity settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Activity settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <uc:RangeInputUc x:Name="WorkTime" Text="Work time" Unit="minutes" />
                         <uc:RangeInputUc x:Name="SleepTime" Text="Sleep time" Unit="minutes" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Delay settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Delay settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <uc:RangeInputUc x:Name="ClickDelay" Text="Click delay" Unit="milliseconds" />
                         <uc:RangeInputUc x:Name="TaskDelay" Text="Task delay" Unit="milliseconds" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Feature settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Feature settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="EnableAutoLoadVillage" Content="Enable auto load village's building" />
                         <CheckBox x:Name="EnableAutoStartAdventure" Content="Enable auto start adventure" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chrome settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chrome settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="HeadlessChrome" Content="Use headless chrome" />
                     </StackPanel>
                 </Border>
