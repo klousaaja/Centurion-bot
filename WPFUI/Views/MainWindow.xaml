@@ -14,7 +14,7 @@
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     TextElement.FontWeight="Medium"
     TextElement.FontSize="13"
-    Title="Travian Bot Sharp"
+    Title="Centurion"
     WindowState="Maximized"
     Height="512" Width="1024">
     <Grid>

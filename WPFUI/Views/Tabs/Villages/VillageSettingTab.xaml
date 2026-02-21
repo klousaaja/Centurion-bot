@@ -9,7 +9,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
-    <Grid  Background="#FFE5E5E5">
+    <Grid  Background="#0D0D0D">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -34,7 +34,7 @@
             <StackPanel>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Upgrade settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Upgrade settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="UseHeroResForBuilding" Content="Use hero resources when lack of resources" />
                         <CheckBox x:Name="UseRomanQueueLogic" Content="Use Roman queue logic" />
                         <StackPanel Orientation="Horizontal">
@@ -48,14 +48,14 @@
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Auto refresh" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Auto refresh" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="AutoRefreshEnable" Content="Enable auto refresh" />
                         <uc:RangeInputUc x:Name="AutoRefreshTime" Text="Refresh every" Unit="minutes" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="NPC Crop exchange settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="NPC Crop exchange settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="AutoNPCEnable" Content="Enable NPC Crop exchange" />
                         <CheckBox x:Name="AutoNPCOverflow" Content="Despite warehouse overflow" />
                         <uc:AmountInputUc x:Name="AutoNPCGranaryPercent" Text="Granary" Unit="%" />
@@ -65,19 +65,19 @@
 
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Village information" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Village information" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <uc:TribeSelectorUc x:Name="Tribes" Text="Tribe" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Feature settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Feature settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="AutoClaimQuestEnable" Content="Enable auto claim village's quest" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Troop training settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Troop training settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="TrainTroopEnable" Content="Enable train troop" />
                         <uc:RangeInputUc x:Name="TrainTroopRepeatTime" Text="Next train troop execute after" Unit="mins" />
                         <CheckBox x:Name="TrainWhenLowResource" Content="Train maximum number if low on resource" />
