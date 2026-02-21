@@ -69,7 +69,7 @@ namespace WPFUI
             }
         }
 
-        private static void OnUnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs e)
+        private static void OnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
             LogFatalException(e.Exception, "TaskScheduler");
             e.SetObserved();
