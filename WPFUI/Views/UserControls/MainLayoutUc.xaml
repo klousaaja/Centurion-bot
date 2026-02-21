@@ -1,4 +1,4 @@
-﻿<v_uc:MainLayoutUcBase
+<v_uc:MainLayoutUcBase
     x:Class="WPFUI.Views.UserControls.MainLayoutUc"
     xmlns:v_uc="clr-namespace:WPFUI.Views.UserControls"
     xmlns:v_tab="clr-namespace:WPFUI.Views.Tabs"
@@ -8,7 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="5">
+    <Grid Margin="5" Background="{DynamicResource CenturionBlackBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*" />
             <ColumnDefinition Width="45*" />
@@ -32,26 +32,26 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Button x:Name="AddAccountButton"   Content="Add account"       Grid.ColumnSpan="3" Grid.Row="0" Margin="0,0,0,2" />
-                <Button x:Name="AddAccountsButton"  Content="Add accounts"      Grid.ColumnSpan="3" Grid.Row="1" Margin="0,0,0,2" />
-                <Button x:Name="LoginButton"        Content="Login"             Grid.Column="0"     Grid.Row="2" Margin="0,0,0,2" />
-                <Button x:Name="LogoutButton"       Content="Logout"            Grid.Column="2"     Grid.Row="2" Margin="0,0,0,2" />
-                <Button x:Name="DeleteButton"       Content="Delete"            Grid.ColumnSpan="3" Grid.Row="3" Margin="0,0,0,2" />
-                <Button x:Name="PauseButton"        Content="Pause"             Grid.Column="0"     Grid.Row="4" Margin="0,0,0,2" />
-                <Button x:Name="RestartButton"      Content="Restart"           Grid.Column="2"     Grid.Row="4" Margin="0,0,0,2" />
+                <Button x:Name="AddAccountButton"   Content="Add account"       Grid.ColumnSpan="3" Grid.Row="0" Margin="0,0,0,2" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="AddAccountsButton"  Content="Add accounts"      Grid.ColumnSpan="3" Grid.Row="1" Margin="0,0,0,2" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="LoginButton"        Content="Login"             Grid.Column="0"     Grid.Row="2" Margin="0,0,0,2" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="LogoutButton"       Content="Logout"            Grid.Column="2"     Grid.Row="2" Margin="0,0,0,2" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="DeleteButton"       Content="Delete"            Grid.ColumnSpan="3" Grid.Row="3" Margin="0,0,0,2" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="PauseButton"        Content="Pause"             Grid.Column="0"     Grid.Row="4" Margin="0,0,0,2" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="RestartButton"      Content="Restart"           Grid.Column="2"     Grid.Row="4" Margin="0,0,0,2" Style="{DynamicResource CenturionButton}" />
             </Grid>
             <Border Style="{DynamicResource Box}" Grid.Row="1">
-                <ListBox x:Name="AccountGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}" />
+                <ListBox x:Name="AccountGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}" Background="{DynamicResource CenturionSurfaceBrush}" />
             </Border>
             <Border Style="{DynamicResource Box}" Grid.Row="2">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Version: "></Label>
-                    <Label x:Name="Version" Content="30.4.1975"></Label>
+                    <Label Content="Version: " Foreground="{DynamicResource CenturionTextSecondaryBrush}" />
+                    <Label x:Name="Version" Content="30.4.1975" Foreground="{DynamicResource CenturionGoldBrush}" />
                 </StackPanel>
             </Border>
         </Grid>
         <Border Style="{DynamicResource Box}" Grid.Column="1" Margin="10,0,0,5">
-            <TabControl>
+            <TabControl Background="{DynamicResource CenturionCardBrush}">
                 <TabItem x:Name="NoAccountTab" Header="No account" IsSelected="True">
                     <v_tab:NoAccountTab x:Name="NoAccount" />
                 </TabItem>

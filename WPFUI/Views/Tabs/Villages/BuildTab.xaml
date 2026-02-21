@@ -1,4 +1,4 @@
-﻿<v:BuildTabBase
+<v:BuildTabBase
     x:Class="WPFUI.Views.Tabs.Villages.BuildTab"
     xmlns:v="clr-namespace:WPFUI.Views.Tabs.Villages"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
-    <Grid>
+    <Grid Background="{DynamicResource CenturionSurfaceBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2" />
@@ -23,10 +23,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Border Style="{DynamicResource Box}" Grid.Row="0">
-                <ListBox x:Name="QueueGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxItem}" />
+                <ListBox x:Name="QueueGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxItem}" Background="{DynamicResource CenturionSurfaceBrush}" />
             </Border>
             <Border Style="{DynamicResource Box}" Grid.Row="1">
-                <ListBox x:Name="BuildingsGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxBlackColorItem}">
+                <ListBox x:Name="BuildingsGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxBlackColorItem}" Background="{DynamicResource CenturionSurfaceBrush}">
                     <ListBox.ContextMenu>
                         <ContextMenu>
                             <MenuItem x:Name="UpgradeOneLevelButton" Header="Upgrade one level">
@@ -63,11 +63,11 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="Building" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <Label Grid.Row="0" Grid.Column="0" Content="Building" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource CenturionTextPrimaryBrush}" />
                     <ComboBox x:Name="NormalBuildings" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"  HorizontalAlignment="Stretch" DisplayMemberPath="Name" />
 
-                    <Label Grid.Row="1" Grid.Column="0" Content="Level"  VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    <TextBox x:Name="NormalLevel" Grid.Row="1"  Grid.Column="1" />
+                    <Label Grid.Row="1" Grid.Column="0" Content="Level"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource CenturionTextPrimaryBrush}" />
+                    <TextBox x:Name="NormalLevel" Grid.Row="1"  Grid.Column="1" Background="{DynamicResource CenturionCardBrush}" Foreground="{DynamicResource CenturionTextPrimaryBrush}" CaretBrush="{DynamicResource CenturionGoldBrush}" />
                     <Button x:Name="NormalBuild" Grid.Row="3" Grid.ColumnSpan="2" Style="{DynamicResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Build">
                         <materialDesign:PackIcon Width="30" Height="30" Kind="Hammer" />
                     </Button>
@@ -88,8 +88,8 @@
                     </Grid.ColumnDefinitions>
                     <ComboBox x:Name="ResType" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" DisplayMemberPath="Name" SelectedIndex="0" />
 
-                    <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Level" />
-                    <TextBox x:Name="ResourceLevel" Grid.Row="1"  Grid.Column="1" />
+                    <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Level" Foreground="{DynamicResource CenturionTextPrimaryBrush}" />
+                    <TextBox x:Name="ResourceLevel" Grid.Row="1"  Grid.Column="1" Background="{DynamicResource CenturionCardBrush}" Foreground="{DynamicResource CenturionTextPrimaryBrush}" CaretBrush="{DynamicResource CenturionGoldBrush}" />
                     <Button x:Name="ResourceBuild" Grid.Row="3" Grid.ColumnSpan="2" Style="{DynamicResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Build">
                         <materialDesign:PackIcon Width="30" Height="30" Kind="Hammer" />
                     </Button>
@@ -107,11 +107,11 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="ImportButton"       Grid.Column="0" Content="Import" Margin="5" />
-                <Button x:Name="ExportButton"       Grid.Column="1" Content="Export" Margin="5" />
+                <Button x:Name="ImportButton"       Grid.Column="0" Content="Import" Margin="5" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="ExportButton"       Grid.Column="1" Content="Export" Margin="5" Style="{DynamicResource CenturionButton}" />
             </Grid>
             <Border Grid.Row="1" Style="{DynamicResource Box}">
-                <ListBox x:Name="JobsGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}">
+                <ListBox x:Name="JobsGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}" Background="{DynamicResource CenturionSurfaceBrush}">
                     <ListBox.ContextMenu>
                         <ContextMenu>
                             <MenuItem x:Name="TopButton" Header="Top">

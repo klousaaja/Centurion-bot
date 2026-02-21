@@ -1,4 +1,4 @@
-﻿<v:FarmingTabBase
+<v:FarmingTabBase
     x:Class="WPFUI.Views.Tabs.FarmingTab"
     xmlns:v="clr-namespace:WPFUI.Views.Tabs"
     xmlns:uc="clr-namespace:WPFUI.Views.UserControls"
@@ -10,7 +10,7 @@
     mc:Ignorable="d"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FFE5E5E5">
+    <Grid Background="{DynamicResource CenturionSurfaceBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="4*" />
@@ -21,9 +21,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Border Style="{DynamicResource Box}" Grid.Row="0">
-                <ListBox x:Name="FarmlistGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}" />
+                <ListBox x:Name="FarmlistGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}" Background="{DynamicResource CenturionSurfaceBrush}" />
             </Border>
-            <Button x:Name="Load" Grid.Row="1" Content="Load farmlist" ToolTip="Load farmlist" Margin="5,0,5,5" />
+            <Button x:Name="Load" Grid.Row="1" Content="Load farmlist" ToolTip="Load farmlist" Margin="5,0,5,5" Style="{DynamicResource CenturionButton}" />
         </Grid>
         <Border Style="{DynamicResource Box}" Grid.Column="1">
             <Grid>
@@ -36,17 +36,17 @@
                 <StackPanel                     Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <StackPanel Margin="0,20,0,0">
                         <uc:RangeInputUc x:Name="FarmInterval" Text="Start farm delay" Unit="s" />
-                        <CheckBox x:Name="UseStartAllCheckbox" Content="Use Start all button (ignore active settings)" />
+                        <CheckBox x:Name="UseStartAllCheckbox" Content="Use Start all button (ignore active settings)" Foreground="{DynamicResource CenturionTextPrimaryBrush}" />
                     </StackPanel>
-                    <Button x:Name="SaveButton" ToolTip="Save"                              Margin="10">
+                    <Button x:Name="SaveButton" ToolTip="Save" Margin="10" Style="{DynamicResource CenturionButton}">
                         <materialDesign:PackIcon Width="{DynamicResource IconSize}" Height="{DynamicResource IconSize}" Kind="ContentSave" />
                     </Button>
                 </StackPanel>
-                <Button x:Name="ActiveButton"   Grid.Row="1" Margin="10" />
-                <Button x:Name="StartButton"    Grid.Row="2" ToolTip="Start" Margin="10">
+                <Button x:Name="ActiveButton"   Grid.Row="1" Margin="10" Style="{DynamicResource CenturionButton}" />
+                <Button x:Name="StartButton"    Grid.Row="2" ToolTip="Start" Margin="10" Style="{DynamicResource CenturionButton}">
                     <materialDesign:PackIcon Width="{DynamicResource IconSize}" Height="{DynamicResource IconSize}" Kind="Play" />
                 </Button>
-                <Button x:Name="StopButton"     Grid.Row="3" ToolTip="Stop"             Margin="10">
+                <Button x:Name="StopButton"     Grid.Row="3" ToolTip="Stop"             Margin="10" Style="{DynamicResource CenturionButton}">
                     <materialDesign:PackIcon Width="{DynamicResource IconSize}" Height="{DynamicResource IconSize}" Kind="Stop" />
                 </Button>
             </Grid>

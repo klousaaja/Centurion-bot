@@ -1,4 +1,4 @@
-﻿<v:VillageTabBase
+<v:VillageTabBase
     x:Class="WPFUI.Views.Tabs.VillageTab"
     xmlns:v="clr-namespace:WPFUI.Views.Tabs"
     xmlns:v_tab="clr-namespace:WPFUI.Views.Tabs.Villages"
@@ -9,13 +9,13 @@
     xmlns:local="clr-namespace:WPFUI.Views.Tabs"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FFE5E5E5">
+    <Grid Background="{DynamicResource CenturionSurfaceBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
         <Border Style="{DynamicResource Box}" Grid.Column="0">
-            <ListBox x:Name="VillagesGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}">
+            <ListBox x:Name="VillagesGrid" SelectionMode="Single" ItemTemplate="{DynamicResource ListBoxColorItem}" Background="{DynamicResource CenturionSurfaceBrush}">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem x:Name="LoadCurrent" Header="Reload this village's building" />
@@ -27,7 +27,7 @@
         </Border>
 
         <Border Style="{DynamicResource Box}" Grid.Column="1">
-            <TabControl Grid.Column="1" Margin="10,0,0,0">
+            <TabControl Grid.Column="1" Margin="10,0,0,0" Background="{DynamicResource CenturionCardBrush}">
                 <TabItem x:Name="NoVillageTab" Header="No village" IsSelected="True">
                     <v_tab:NoVillageTab x:Name="NoVillage" />
                 </TabItem>

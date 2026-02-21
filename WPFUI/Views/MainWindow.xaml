@@ -1,4 +1,4 @@
-﻿<v:MainWindowBase
+<v:MainWindowBase
     x:Class="WPFUI.Views.MainWindow"
     xmlns:v="clr-namespace:WPFUI.Views"
     xmlns:vm_uc="clr-namespace:MainCore.UI.ViewModels.UserControls;assembly=MainCore"
@@ -9,12 +9,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    Background="{DynamicResource MaterialDesignPaper}"
+    Background="{DynamicResource CenturionBlackBrush}"
     FontFamily="{materialDesign:MaterialDesignFont}"
-    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextElement.Foreground="{DynamicResource CenturionTextPrimaryBrush}"
     TextElement.FontWeight="Medium"
     TextElement.FontSize="13"
-    Title="Travian Bot Sharp"
+    Title="Centurion"
     WindowState="Maximized"
     Height="512" Width="1024">
     <Grid>

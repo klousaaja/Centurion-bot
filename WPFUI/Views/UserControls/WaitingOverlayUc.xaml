@@ -1,4 +1,4 @@
-﻿<v:WaitingOverlayUcBase
+<v:WaitingOverlayUcBase
     x:Class="WPFUI.Views.UserControls.WaitingOverlayUc"
     xmlns:v="clr-namespace:WPFUI.Views.UserControls"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,7 +10,7 @@
     <Grid x:Name="Grid">
         <Border Style="{DynamicResource Background}" />
         <Border Style="{DynamicResource Content}">
-            <TextBlock x:Name="Message" Margin="10" />
+            <TextBlock x:Name="Message" Margin="10" Foreground="{DynamicResource CenturionGoldBrush}" FontWeight="SemiBold" />
         </Border>
     </Grid>
 </v:WaitingOverlayUcBase>

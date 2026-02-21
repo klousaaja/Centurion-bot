@@ -1,4 +1,4 @@
-﻿<v:AccountSettingTabBase
+<v:AccountSettingTabBase
     x:Class="WPFUI.Views.Tabs.AccountSettingTab"
     xmlns:v="clr-namespace:WPFUI.Views.Tabs"
     xmlns:uc="clr-namespace:WPFUI.Views.UserControls"
@@ -9,7 +9,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
-    <Grid  Background="#FFE5E5E5">
+    <Grid Background="{DynamicResource CenturionSurfaceBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -20,13 +20,13 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="SaveButton" Grid.Column="0" ToolTip="Save">
+            <Button x:Name="SaveButton" Grid.Column="0" ToolTip="Save" Style="{DynamicResource CenturionButton}">
                 <materialDesign:PackIcon Width="{DynamicResource IconSize}" Height="{DynamicResource IconSize}" Kind="ContentSave" />
             </Button>
-            <Button x:Name="ImportButton" Grid.Column="1" Style="{DynamicResource MaterialDesignRaisedDarkButton}"  Width="{DynamicResource ButtonWidth}" ToolTip="Import">
+            <Button x:Name="ImportButton" Grid.Column="1" Style="{DynamicResource CenturionButton}" Width="{DynamicResource ButtonWidth}" ToolTip="Import">
                 <materialDesign:PackIcon Width="{DynamicResource IconSize}" Height="{DynamicResource IconSize}" Kind="Import" />
             </Button>
-            <Button x:Name="ExportButton" Grid.Column="2" Style="{DynamicResource MaterialDesignRaisedDarkButton}"  Width="{DynamicResource ButtonWidth}" ToolTip="Export">
+            <Button x:Name="ExportButton" Grid.Column="2" Style="{DynamicResource CenturionButton}" Width="{DynamicResource ButtonWidth}" ToolTip="Export">
                 <materialDesign:PackIcon Width="{DynamicResource IconSize}" Height="{DynamicResource IconSize}" Kind="Export" />
             </Button>
         </Grid>
@@ -34,35 +34,35 @@
             <StackPanel>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Account information" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Account information" VerticalAlignment="Center" Style="{DynamicResource CenturionSectionHeader}" />
                         <uc:TribeSelectorUc x:Name="Tribes" Text="Tribe" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Activity settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Activity settings" VerticalAlignment="Center" Style="{DynamicResource CenturionSectionHeader}" />
                         <uc:RangeInputUc x:Name="WorkTime" Text="Work time" Unit="minutes" />
                         <uc:RangeInputUc x:Name="SleepTime" Text="Sleep time" Unit="minutes" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Delay settings" VerticalAlignment="Center" FontWeight="Bold" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Delay settings" VerticalAlignment="Center" Style="{DynamicResource CenturionSectionHeader}" />
                         <uc:RangeInputUc x:Name="ClickDelay" Text="Click delay" Unit="milliseconds" />
                         <uc:RangeInputUc x:Name="TaskDelay" Text="Task delay" Unit="milliseconds" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Feature settings" VerticalAlignment="Center" FontWeight="Bold" />
-                        <CheckBox x:Name="EnableAutoLoadVillage" Content="Enable auto load village's building" />
-                        <CheckBox x:Name="EnableAutoStartAdventure" Content="Enable auto start adventure" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Feature settings" VerticalAlignment="Center" Style="{DynamicResource CenturionSectionHeader}" />
+                        <CheckBox x:Name="EnableAutoLoadVillage" Content="Enable auto load village's building" Foreground="{DynamicResource CenturionTextPrimaryBrush}" />
+                        <CheckBox x:Name="EnableAutoStartAdventure" Content="Enable auto start adventure" Foreground="{DynamicResource CenturionTextPrimaryBrush}" />
                     </StackPanel>
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chrome settings" VerticalAlignment="Center" FontWeight="Bold" />
-                        <CheckBox x:Name="HeadlessChrome" Content="Use headless chrome" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chrome settings" VerticalAlignment="Center" Style="{DynamicResource CenturionSectionHeader}" />
+                        <CheckBox x:Name="HeadlessChrome" Content="Use headless chrome" Foreground="{DynamicResource CenturionTextPrimaryBrush}" />
                     </StackPanel>
                 </Border>
             </StackPanel>

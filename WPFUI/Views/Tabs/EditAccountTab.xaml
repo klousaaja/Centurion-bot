@@ -1,4 +1,4 @@
-﻿<v:EditAccountTabBase
+<v:EditAccountTabBase
     x:Class="WPFUI.Views.Tabs.EditAccountTab"
     xmlns:v="clr-namespace:WPFUI.Views.Tabs"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -8,7 +8,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FFE5E5E5">
+    <Grid Background="{DynamicResource CenturionSurfaceBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -65,14 +65,14 @@
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
-                    <Button  x:Name="AddAccessButton"       Grid.Column="0" Content="Add access" />
-                    <Button  x:Name="EditAccessButton"      Grid.Column="2" Content="Edit access" />
-                    <Button  x:Name="DeleteAccessButton"    Grid.Column="4" Content="Delete access" />
+                    <Button  x:Name="AddAccessButton"       Grid.Column="0" Content="Add access" Style="{DynamicResource CenturionButton}" />
+                    <Button  x:Name="EditAccessButton"      Grid.Column="2" Content="Edit access" Style="{DynamicResource CenturionButton}" />
+                    <Button  x:Name="DeleteAccessButton"    Grid.Column="4" Content="Delete access" Style="{DynamicResource CenturionButton}" />
                 </Grid>
             </StackPanel>
         </Border>
         <Border Style="{DynamicResource Box}"  Grid.Row="2">
-            <DataGrid x:Name="ProxiesDataGrid" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid x:Name="ProxiesDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Background="{DynamicResource CenturionCardBrush}" Foreground="{DynamicResource CenturionTextPrimaryBrush}" BorderBrush="{DynamicResource CenturionBorderBrush}" RowBackground="{DynamicResource CenturionSurfaceBrush}" AlternatingRowBackground="{DynamicResource CenturionCardBrush}" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="{DynamicResource CenturionBorderBrush}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Username" Binding="{Binding Username}" />
                     <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
@@ -86,6 +86,6 @@
             </DataGrid>
         </Border>
 
-        <Button x:Name="EditAccountButton" Content="Edit account" Grid.Row="3" />
+        <Button x:Name="EditAccountButton" Content="Edit account" Grid.Row="3" Style="{DynamicResource CenturionButton}" />
     </Grid>
 </v:EditAccountTabBase>
