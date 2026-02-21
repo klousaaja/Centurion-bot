@@ -15,6 +15,15 @@ namespace MainCore.Services
 
         private async Task Update()
         {
+            if (string.IsNullOrWhiteSpace(_userAgentUrl))
+            {
+                _logger.Warning("User agent URL is not configured. Using empty list.");
+                _userAgentList = [];
+                _dateTime = DateTime.Now.AddMonths(1);
+                Save();
+                return;
+            }
+
             var useragents = await _httpClient.GetFromJsonAsync<List<string>>(_userAgentUrl);
             if (useragents is null || useragents.Count == 0)
             {
