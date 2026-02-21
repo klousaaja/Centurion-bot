@@ -162,7 +162,7 @@ namespace MainCore.UI.ViewModels.Tabs
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://ko-fi.com/vinaghost",
+                FileName = "",
                 UseShellExecute = true
             });
         }

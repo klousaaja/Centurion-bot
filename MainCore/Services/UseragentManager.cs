@@ -10,7 +10,7 @@ namespace MainCore.Services
         private List<string> _userAgentList = [];
         private DateTime _dateTime;
 
-        private const string _userAgentUrl = "https://raw.githubusercontent.com/vinaghost/user-agent/main/user-agent.json";
+        private const string _userAgentUrl = "";
         private readonly HttpClient _httpClient = new();
 
         private async Task Update()
