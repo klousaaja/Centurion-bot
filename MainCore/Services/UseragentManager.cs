@@ -10,20 +10,11 @@ namespace MainCore.Services
         private List<string> _userAgentList = [];
         private DateTime _dateTime;
 
-        private const string _userAgentUrl = "";
+        private const string _userAgentUrl = "https://raw.githubusercontent.com/vinaghost/user-agent/main/user-agent.json";
         private readonly HttpClient _httpClient = new();
 
         private async Task Update()
         {
-            if (string.IsNullOrWhiteSpace(_userAgentUrl))
-            {
-                _logger.Warning("User agent URL is not configured. Using empty list.");
-                _userAgentList = [];
-                _dateTime = DateTime.Now.AddMonths(1);
-                Save();
-                return;
-            }
-
             var useragents = await _httpClient.GetFromJsonAsync<List<string>>(_userAgentUrl);
             if (useragents is null || useragents.Count == 0)
             {
@@ -73,6 +64,11 @@ namespace MainCore.Services
 
         public string Get()
         {
+            if (_userAgentList.Count == 0)
+            {
+                _logger.Warning("User agent list is empty, using fallback user agent.");
+                return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36";
+            }
             var index = rnd.Next(0, _userAgentList.Count - 1);
             var result = _userAgentList[index];
             _userAgentList.RemoveAt(index);
