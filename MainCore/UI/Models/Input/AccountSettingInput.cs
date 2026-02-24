@@ -15,6 +15,7 @@ namespace MainCore.UI.Models.Input
             EnableAutoLoadVillage = settings.GetValueOrDefault(AccountSettingEnums.EnableAutoLoadVillageBuilding) == 1;
             HeadlessChrome = settings.GetValueOrDefault(AccountSettingEnums.HeadlessChrome) == 1;
             EnableAutoStartAdventure = settings.GetValueOrDefault(AccountSettingEnums.EnableAutoStartAdventure) == 1;
+            EnableAttackAlert = settings.GetValueOrDefault(AccountSettingEnums.EnableAttackAlert) == 1;
             FarmInterval.Set(settings.GetValueOrDefault(AccountSettingEnums.FarmIntervalMin), settings.GetValueOrDefault(AccountSettingEnums.FarmIntervalMax));
             UseStartAllButton = settings.GetValueOrDefault(AccountSettingEnums.UseStartAllButton) == 1;
         }
@@ -29,6 +30,7 @@ namespace MainCore.UI.Models.Input
             var (sleepTimeMin, sleepTimeMax) = SleepTime.Get();
             var headlessChrome = HeadlessChrome ? 1 : 0;
             var autoStartAdventure = EnableAutoStartAdventure ? 1 : 0;
+            var attackAlert = EnableAttackAlert ? 1 : 0;
 
             var (farmIntervalMin, farmIntervalMax) = FarmInterval.Get();
             var useStartAllButton = UseStartAllButton ? 1 : 0;
@@ -53,6 +55,7 @@ namespace MainCore.UI.Models.Input
 
                 { AccountSettingEnums.HeadlessChrome, headlessChrome },
                 { AccountSettingEnums.EnableAutoStartAdventure, autoStartAdventure },
+                { AccountSettingEnums.EnableAttackAlert, attackAlert },
             };
             return settings;
         }
@@ -73,6 +76,9 @@ namespace MainCore.UI.Models.Input
 
         [Reactive]
         private bool _enableAutoStartAdventure;
+
+        [Reactive]
+        private bool _enableAttackAlert;
 
         [Reactive]
         private bool _useStartAllButton;

@@ -1,4 +1,4 @@
-﻿using MainCore.Commands.UI.Misc;
+using MainCore.Commands.UI.Misc;
 using MainCore.UI.Models.Input;
 using MainCore.UI.Models.Output;
 using MainCore.UI.ViewModels.Abstract;
@@ -15,12 +15,16 @@ namespace MainCore.UI.ViewModels.Tabs
         private readonly IDialogService _dialogService;
         private readonly IValidator<AccountSettingInput> _accountsettingInputValidator;
         private readonly ICustomServiceScopeFactory _serviceScopeFactory;
+        private readonly IDiscordService _discordService;
 
-        public AccountSettingViewModel(IDialogService dialogService, IValidator<AccountSettingInput> accountsettingInputValidator, ICustomServiceScopeFactory serviceScopeFactory)
+        public AccountSettingViewModel(IDialogService dialogService, IValidator<AccountSettingInput> accountsettingInputValidator, ICustomServiceScopeFactory serviceScopeFactory, IDiscordService discordService)
         {
             _dialogService = dialogService;
             _accountsettingInputValidator = accountsettingInputValidator;
             _serviceScopeFactory = serviceScopeFactory;
+            _discordService = discordService;
+
+            DiscordWebhookUrl = _discordService.GetWebhookUrl() ?? "";
 
             LoadSettingsCommand.Subscribe(AccountSettingInput.Set);
         }
@@ -44,7 +48,31 @@ namespace MainCore.UI.ViewModels.Tabs
             var saveAccountSettingCommand = scope.ServiceProvider.GetRequiredService<SaveAccountSettingCommand.Handler>();
             await saveAccountSettingCommand.HandleAsync(new(AccountId, AccountSettingInput.Get()));
 
+            _discordService.SetWebhookUrl(DiscordWebhookUrl);
+
             await _dialogService.MessageBox.Handle(new MessageBoxData("Information", "Settings saved."));
+        }
+
+        [ReactiveCommand]
+        private async Task TestWebhook()
+        {
+            if (string.IsNullOrWhiteSpace(DiscordWebhookUrl))
+            {
+                await _dialogService.MessageBox.Handle(new MessageBoxData("Warning", "Please enter a Discord webhook URL first."));
+                return;
+            }
+
+            _discordService.SetWebhookUrl(DiscordWebhookUrl);
+
+            try
+            {
+                await _discordService.SendAttackAlert("Test Village", 0, 0, "Test Account", DateTime.Now.AddMinutes(30));
+                await _dialogService.MessageBox.Handle(new MessageBoxData("Information", "Test message sent to Discord. Check your channel."));
+            }
+            catch (Exception ex)
+            {
+                await _dialogService.MessageBox.Handle(new MessageBoxData("Error", $"Failed to send test message: {ex.Message}"));
+            }
         }
 
         [ReactiveCommand]
@@ -105,5 +133,8 @@ namespace MainCore.UI.ViewModels.Tabs
               .ToDictionary(x => x.Setting, x => x.Value);
             return settings;
         }
+
+        [Reactive]
+        private string _discordWebhookUrl = "";
     }
 }

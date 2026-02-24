@@ -1,4 +1,5 @@
-﻿using MainCore.Tasks.Base;
+﻿using MainCore.Commands.Features;
+using MainCore.Tasks.Base;
 
 namespace MainCore.Behaviors
 {
@@ -12,14 +13,16 @@ namespace MainCore.Behaviors
         private readonly ToDorfCommand.Handler _toDorfCommand;
         private readonly UpdateBuildingCommand.Handler _updateBuildingCommand;
         private readonly UpdateQuestCommand.Handler _updateQuestCommand;
+        private readonly CheckIncomingAttackCommand.Handler _checkIncomingAttackCommand;
 
-        public VillageTaskBehavior(SwitchVillageCommand.Handler switchVillageCommand, UpdateStorageCommand.Handler updateStorageCommand, ToDorfCommand.Handler toDorfCommand, UpdateBuildingCommand.Handler updateBuildingCommand, UpdateQuestCommand.Handler updateQuestCommand)
+        public VillageTaskBehavior(SwitchVillageCommand.Handler switchVillageCommand, UpdateStorageCommand.Handler updateStorageCommand, ToDorfCommand.Handler toDorfCommand, UpdateBuildingCommand.Handler updateBuildingCommand, UpdateQuestCommand.Handler updateQuestCommand, CheckIncomingAttackCommand.Handler checkIncomingAttackCommand)
         {
             _switchVillageCommand = switchVillageCommand;
             _updateStorageCommand = updateStorageCommand;
             _toDorfCommand = toDorfCommand;
             _updateBuildingCommand = updateBuildingCommand;
             _updateQuestCommand = updateQuestCommand;
+            _checkIncomingAttackCommand = checkIncomingAttackCommand;
         }
 
         public override async ValueTask<TResponse> HandleAsync(TRequest request, CancellationToken cancellationToken)
@@ -35,6 +38,8 @@ namespace MainCore.Behaviors
             (_, isFailed, errors) = await _updateBuildingCommand.HandleAsync(new(villageId), cancellationToken);
             if (isFailed) return (TResponse)Result.Fail(errors);
 
+            await _checkIncomingAttackCommand.HandleAsync(new(accountId, villageId), cancellationToken);
+
             var response = await Next(request, cancellationToken);
 
             if (response.IsFailed && !response.HasError<Skip>()) return response;
@@ -44,6 +49,8 @@ namespace MainCore.Behaviors
 
             (_, isFailed, errors) = await _updateBuildingCommand.HandleAsync(new(villageId), cancellationToken);
             if (isFailed) return (TResponse)Result.Fail(errors);
+
+            await _checkIncomingAttackCommand.HandleAsync(new(accountId, villageId), cancellationToken);
 
             await _updateStorageCommand.HandleAsync(new(accountId, villageId), cancellationToken);
 
