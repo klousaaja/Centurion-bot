@@ -30,6 +30,9 @@ namespace WPFUI.Views.Tabs
                 this.Bind(ViewModel, vm => vm.AccountSettingInput.Tribe, v => v.Tribes.ViewModel).DisposeWith(d);
                 this.Bind(ViewModel, vm => vm.AccountSettingInput.HeadlessChrome, v => v.HeadlessChrome.IsChecked).DisposeWith(d);
                 this.Bind(ViewModel, vm => vm.AccountSettingInput.EnableAutoStartAdventure, v => v.EnableAutoStartAdventure.IsChecked).DisposeWith(d);
+                this.Bind(ViewModel, vm => vm.AccountSettingInput.EnableAttackAlert, v => v.EnableAttackAlert.IsChecked).DisposeWith(d);
+                this.Bind(ViewModel, vm => vm.DiscordWebhookUrl, v => v.DiscordWebhookUrl.Text).DisposeWith(d);
+                this.BindCommand(ViewModel, vm => vm.TestWebhookCommand, v => v.TestWebhookButton).DisposeWith(d);
             });
         }
     }

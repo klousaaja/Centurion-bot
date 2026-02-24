@@ -15,6 +15,7 @@
     TextElement.FontWeight="Medium"
     TextElement.FontSize="13"
     Title="Centurion"
+    Icon="/Resources/icon.png"
     WindowState="Maximized"
     Height="512" Width="1024">
     <Grid>

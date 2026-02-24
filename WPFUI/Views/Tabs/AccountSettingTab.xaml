@@ -61,6 +61,22 @@
                 </Border>
                 <Border Style="{DynamicResource Box}">
                     <StackPanel>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Attack alert settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
+                        <CheckBox x:Name="EnableAttackAlert" Content="Enable Discord attack alert" />
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Webhook URL:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                            <TextBox x:Name="DiscordWebhookUrl" Grid.Column="1" VerticalAlignment="Center" />
+                            <Button x:Name="TestWebhookButton" Grid.Column="2" Content="Test" Margin="5,0,0,0" Width="60" ToolTip="Send a test message to Discord" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <Border Style="{DynamicResource Box}">
+                    <StackPanel>
                         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chrome settings" VerticalAlignment="Center" FontWeight="Bold" Foreground="#C9A96E" />
                         <CheckBox x:Name="HeadlessChrome" Content="Use headless chrome" />
                     </StackPanel>
