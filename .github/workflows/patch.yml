@@ -77,7 +77,7 @@ jobs:
         with:
           name: Centurion-${{needs.version.outputs.version}}
           tag: ${{needs.version.outputs.version}}
-          commit: main
+          commit: master
           artifacts: "Centurion-${{needs.version.outputs.version}}.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
