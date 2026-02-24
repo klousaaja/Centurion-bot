@@ -56,6 +56,7 @@ namespace MainCore.Services
 
             var payload = new
             {
+                content = "@everyone",
                 embeds = new[]
                 {
                     new
