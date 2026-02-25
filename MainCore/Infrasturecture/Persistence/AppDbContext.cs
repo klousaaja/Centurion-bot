@@ -49,7 +49,7 @@ namespace MainCore.Infrasturecture.Persistence
             {AccountSettingEnums.EnableAutoStartAdventure, 0 },
             {AccountSettingEnums.EnableAttackAlert, 0 },
             {AccountSettingEnums.EnableFarmListProtection, 0 },
-            {AccountSettingEnums.FarmTroopLossThreshold, 3 },
+            {AccountSettingEnums.FarmSupplyLossThreshold, 3 },
         }.ToImmutableDictionary();
 
         private List<AccountSettingEnums> GetMissingAccountSettings()

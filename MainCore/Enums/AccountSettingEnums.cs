@@ -19,6 +19,6 @@
         EnableAutoStartAdventure,
         EnableAttackAlert,
         EnableFarmListProtection,
-        FarmTroopLossThreshold,
+        FarmSupplyLossThreshold,
     }
 }

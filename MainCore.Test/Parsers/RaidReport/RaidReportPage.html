@@ -2,51 +2,94 @@
 <html>
 <head><title>Travian Raid Report</title></head>
 <body>
-<div id="report">
-  <div class="troopInfos">
-    <table id="attacker">
-      <thead>
-        <tr>
-          <th>Attacker</th>
-          <th class="uniticon"><img class="unit tribe3 u24" /></th>
-          <th class="uniticon"><img class="unit tribe3 u25" /></th>
-          <th class="uniticon"><img class="unit tribe3 u26" /></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="troopHeadline">Troops</td>
-          <td class="unit">10</td>
-          <td class="unit">5</td>
-          <td class="unit">0</td>
-        </tr>
-        <tr class="dead">
-          <td class="troopHeadline">Casualties</td>
-          <td class="unit">2</td>
-          <td class="unit">3</td>
-          <td class="unit">0</td>
-        </tr>
-      </tbody>
-    </table>
-    <table id="defender">
-      <thead>
-        <tr>
-          <th>Defender</th>
-          <th class="uniticon"><img class="unit tribe1 u1" /></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="troopHeadline">Troops</td>
-          <td class="unit">8</td>
-        </tr>
-        <tr class="dead">
-          <td class="troopHeadline">Casualties</td>
-          <td class="unit">8</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="role attacker">
+  <div class="troopHeadline">
+    <div><a class="player" href="/profile/5447">TestPlayer</a> from village <a class="village" href="/karte.php?d=84304">TestVillage</a></div>
   </div>
+  <table>
+    <tbody class="units">
+      <tr>
+        <th class="coords"></th>
+        <td class="uniticon"><img class="unit u1" title="Legionnaire" /></td>
+        <td class="uniticon"><img class="unit u5" title="Equites Imperatoris" /></td>
+        <td class="uniticon last"><img class="unit uhero" title="Hero" /></td>
+      </tr>
+    </tbody>
+    <tbody class="units">
+      <tr>
+        <th><i class="troopCount_small" title="Troops"> </i></th>
+        <td class="unit">10</td>
+        <td class="unit">5</td>
+        <td class="unit last">1</td>
+      </tr>
+    </tbody>
+    <tbody class="units">
+      <tr>
+        <th><i class="troopDead_small" title="Casualties"> </i></th>
+        <td class="unit">2</td>
+        <td class="unit">3</td>
+        <td class="unit last">0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="role defender">
+  <div class="troopHeadline">
+    <div><span class="player deletedPlayer">Nature</span> from village <a class="village" href="/karte.php?d=85108">Unoccupied oasis</a></div>
+  </div>
+  <table>
+    <tbody class="units">
+      <tr>
+        <th class="coords"></th>
+        <td class="uniticon"><img class="unit u35" title="Wild Boar" /></td>
+        <td class="uniticon"><img class="unit u36" title="Wolf" /></td>
+      </tr>
+    </tbody>
+    <tbody class="units">
+      <tr>
+        <th><i class="troopCount_small" title="Troops"> </i></th>
+        <td class="unit">17</td>
+        <td class="unit">5</td>
+      </tr>
+    </tbody>
+    <tbody class="units">
+      <tr>
+        <th><i class="troopDead_small" title="Casualties"> </i></th>
+        <td class="unit">15</td>
+        <td class="unit">4</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="combatStatistics">
+  <div class="header"><h2>Statistics</h2></div>
+  <table class="combatStatistic">
+    <thead>
+      <tr><th></th><th>Attacker</th><th>Defender</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Combat strength</th>
+        <td><div class="inlineIcon"><i class="offence_medium"></i><span class="value">&#x202d;4,500&#x202c;</span></div></td>
+        <td><div class="inlineIcon"><i class="defence_medium"></i><span class="value">&#x202d;1,321&#x202c;</span></div></td>
+      </tr>
+      <tr>
+        <th>Supply before</th>
+        <td><div class="inlineIcon"><i class="r5Big"></i><span class="value">&#x202d;6&#x202c;</span></div></td>
+        <td><div class="inlineIcon"><i class="r5Big"></i><span class="value">&#x202d;0&#x202c;</span></div></td>
+      </tr>
+      <tr>
+        <th>Supply lost</th>
+        <td><div class="inlineIcon"><i class="r5Big"></i><span class="value">&#x202d;5&#x202c;</span></div></td>
+        <td><div class="inlineIcon"><i class="r5Big"></i><span class="value">&#x202d;0&#x202c;</span></div></td>
+      </tr>
+      <tr>
+        <th>Resources lost</th>
+        <td><div class="inlineIcon"><i class="resources_medium"></i><span class="value">&#x202d;0&#x202c;</span></div></td>
+        <td><div class="inlineIcon"><i class="resources_medium"></i><span class="value">&#x202d;8,400&#x202c;</span></div></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 </body>
 </html>

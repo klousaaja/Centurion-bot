@@ -2,32 +2,33 @@ namespace MainCore.Parsers
 {
     public static class RaidReportParser
     {
-        public static int GetAttackerLosses(HtmlDocument doc)
+        public static int GetAttackerSupplyLost(HtmlDocument doc)
         {
-            var attackerTable = doc.GetElementbyId("attacker");
-            if (attackerTable is null) return 0;
+            var statsDiv = doc.DocumentNode
+                .Descendants("div")
+                .FirstOrDefault(x => x.HasClass("combatStatistics"));
+            if (statsDiv is null) return 0;
 
-            var deadRow = attackerTable
-                .Descendants("tr")
-                .FirstOrDefault(x => x.HasClass("dead"));
-            if (deadRow is null) return 0;
-
-            var unitCells = deadRow
-                .Descendants("td")
-                .Where(x => x.HasClass("unit"));
-
-            var totalLosses = 0;
-            foreach (var cell in unitCells)
+            var rows = statsDiv.Descendants("tr");
+            foreach (var row in rows)
             {
-                var text = cell.InnerText.Trim();
-                var value = text.ParseInt();
-                if (value > 0)
-                {
-                    totalLosses += value;
-                }
+                var th = row.Descendants("th").FirstOrDefault();
+                if (th is null) continue;
+                if (!th.InnerText.Trim().Equals("Supply lost", StringComparison.OrdinalIgnoreCase)) continue;
+
+                var attackerTd = row.Descendants("td").FirstOrDefault();
+                if (attackerTd is null) return 0;
+
+                var valueSpan = attackerTd
+                    .Descendants("span")
+                    .FirstOrDefault(x => x.HasClass("value"));
+                if (valueSpan is null) return 0;
+
+                var parsed = valueSpan.InnerText.Trim().ParseInt();
+                return parsed < 0 ? 0 : parsed;
             }
 
-            return totalLosses;
+            return 0;
         }
     }
 }

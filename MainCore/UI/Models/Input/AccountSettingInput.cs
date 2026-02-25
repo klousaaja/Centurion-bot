@@ -19,7 +19,7 @@ namespace MainCore.UI.Models.Input
             FarmInterval.Set(settings.GetValueOrDefault(AccountSettingEnums.FarmIntervalMin), settings.GetValueOrDefault(AccountSettingEnums.FarmIntervalMax));
             UseStartAllButton = settings.GetValueOrDefault(AccountSettingEnums.UseStartAllButton) == 1;
             EnableFarmListProtection = settings.GetValueOrDefault(AccountSettingEnums.EnableFarmListProtection) == 1;
-            FarmTroopLossThreshold = settings.GetValueOrDefault(AccountSettingEnums.FarmTroopLossThreshold);
+            FarmSupplyLossThreshold = settings.GetValueOrDefault(AccountSettingEnums.FarmSupplyLossThreshold);
         }
 
         public Dictionary<AccountSettingEnums, int> Get()
@@ -60,7 +60,7 @@ namespace MainCore.UI.Models.Input
                 { AccountSettingEnums.EnableAutoStartAdventure, autoStartAdventure },
                 { AccountSettingEnums.EnableAttackAlert, attackAlert },
                 { AccountSettingEnums.EnableFarmListProtection, enableFarmListProtection },
-                { AccountSettingEnums.FarmTroopLossThreshold, FarmTroopLossThreshold },
+                { AccountSettingEnums.FarmSupplyLossThreshold, FarmSupplyLossThreshold },
             };
             return settings;
         }
@@ -92,6 +92,6 @@ namespace MainCore.UI.Models.Input
         private bool _enableFarmListProtection;
 
         [Reactive]
-        private int _farmTroopLossThreshold;
+        private int _farmSupplyLossThreshold;
     }
 }

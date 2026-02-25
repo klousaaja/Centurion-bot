@@ -18,7 +18,7 @@ namespace MainCore.Commands.Features.StartFarmList
             var isEnabled = settingService.BooleanByName(accountId, AccountSettingEnums.EnableFarmListProtection);
             if (!isEnabled) return Result.Ok();
 
-            var threshold = settingService.ByName(accountId, AccountSettingEnums.FarmTroopLossThreshold);
+            var threshold = settingService.ByName(accountId, AccountSettingEnums.FarmSupplyLossThreshold);
 
             var farmListUrl = browser.CurrentUrl;
 
@@ -61,11 +61,11 @@ namespace MainCore.Commands.Features.StartFarmList
                     await delayService.DelayClick(cancellationToken);
 
                     var reportHtml = browser.Html;
-                    var losses = RaidReportParser.GetAttackerLosses(reportHtml);
+                    var supplyLost = RaidReportParser.GetAttackerSupplyLost(reportHtml);
 
-                    browser.Logger.Information("[FarmProtection] Orange sword on {Target} (slot {SlotId}) - losses: {Losses}, threshold: {Threshold}", targetName, slotId, losses, threshold);
+                    browser.Logger.Information("[FarmProtection] Orange sword on {Target} (slot {SlotId}) - supply lost: {SupplyLost}, threshold: {Threshold}", targetName, slotId, supplyLost, threshold);
 
-                    if (losses > threshold)
+                    if (supplyLost > threshold)
                     {
                         slotsToUncheck.Add(slotId);
                     }

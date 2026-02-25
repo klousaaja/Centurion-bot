@@ -30,7 +30,7 @@ namespace WPFUI.Views.Tabs
                 this.Bind(ViewModel, vm => vm.AccountSettingInput.UseStartAllButton, v => v.UseStartAllCheckbox.IsChecked).DisposeWith(d);
                 this.OneWayBind(ViewModel, vm => vm.AccountSettingInput.FarmInterval, v => v.FarmInterval.ViewModel).DisposeWith(d);
                 this.Bind(ViewModel, vm => vm.AccountSettingInput.EnableFarmListProtection, v => v.EnableFarmListProtectionCheckbox.IsChecked).DisposeWith(d);
-                this.Bind(ViewModel, vm => vm.AccountSettingInput.FarmTroopLossThreshold, v => v.FarmTroopLossThresholdInput.Text).DisposeWith(d);
+                this.Bind(ViewModel, vm => vm.AccountSettingInput.FarmSupplyLossThreshold, v => v.FarmSupplyLossThresholdInput.Text).DisposeWith(d);
 
                 this.Bind(ViewModel, vm => vm.ActiveText, v => v.ActiveButton.Content).DisposeWith(d);
             });
