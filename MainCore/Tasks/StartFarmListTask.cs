@@ -20,6 +20,8 @@ namespace MainCore.Tasks
             Task task,
             ISettingService settingService,
             ToFarmListPageCommand.Handler toFarmListPageCommand,
+            ExpandFarmListsCommand.Handler expandFarmListsCommand,
+            EvaluateFarmTargetsCommand.Handler evaluateFarmTargetsCommand,
             StartAllFarmListCommand.Handler startAllFarmListCommand,
             StartActiveFarmListCommand.Handler startActiveFarmListCommand,
             NextExecuteStartFarmListTaskCommand.Handler nextExecuteStartFarmListTaskCommand,
@@ -27,6 +29,12 @@ namespace MainCore.Tasks
         {
             Result result;
             result = await toFarmListPageCommand.HandleAsync(new(task.AccountId), cancellationToken);
+            if (result.IsFailed) return result;
+
+            result = await expandFarmListsCommand.HandleAsync(new(), cancellationToken);
+            if (result.IsFailed) return result;
+
+            result = await evaluateFarmTargetsCommand.HandleAsync(new(task.AccountId), cancellationToken);
             if (result.IsFailed) return result;
 
             var useStartAllButton = settingService.BooleanByName(task.AccountId, AccountSettingEnums.UseStartAllButton);

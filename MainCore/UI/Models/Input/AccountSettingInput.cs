@@ -18,6 +18,8 @@ namespace MainCore.UI.Models.Input
             EnableAttackAlert = settings.GetValueOrDefault(AccountSettingEnums.EnableAttackAlert) == 1;
             FarmInterval.Set(settings.GetValueOrDefault(AccountSettingEnums.FarmIntervalMin), settings.GetValueOrDefault(AccountSettingEnums.FarmIntervalMax));
             UseStartAllButton = settings.GetValueOrDefault(AccountSettingEnums.UseStartAllButton) == 1;
+            EnableFarmListProtection = settings.GetValueOrDefault(AccountSettingEnums.EnableFarmListProtection) == 1;
+            FarmTroopLossThreshold = settings.GetValueOrDefault(AccountSettingEnums.FarmTroopLossThreshold);
         }
 
         public Dictionary<AccountSettingEnums, int> Get()
@@ -34,6 +36,7 @@ namespace MainCore.UI.Models.Input
 
             var (farmIntervalMin, farmIntervalMax) = FarmInterval.Get();
             var useStartAllButton = UseStartAllButton ? 1 : 0;
+            var enableFarmListProtection = EnableFarmListProtection ? 1 : 0;
 
             var settings = new Dictionary<AccountSettingEnums, int>()
             {
@@ -56,6 +59,8 @@ namespace MainCore.UI.Models.Input
                 { AccountSettingEnums.HeadlessChrome, headlessChrome },
                 { AccountSettingEnums.EnableAutoStartAdventure, autoStartAdventure },
                 { AccountSettingEnums.EnableAttackAlert, attackAlert },
+                { AccountSettingEnums.EnableFarmListProtection, enableFarmListProtection },
+                { AccountSettingEnums.FarmTroopLossThreshold, FarmTroopLossThreshold },
             };
             return settings;
         }
@@ -82,5 +87,11 @@ namespace MainCore.UI.Models.Input
 
         [Reactive]
         private bool _useStartAllButton;
+
+        [Reactive]
+        private bool _enableFarmListProtection;
+
+        [Reactive]
+        private int _farmTroopLossThreshold;
     }
 }

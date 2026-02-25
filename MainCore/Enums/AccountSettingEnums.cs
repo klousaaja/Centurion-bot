@@ -18,5 +18,7 @@
         HeadlessChrome,
         EnableAutoStartAdventure,
         EnableAttackAlert,
+        EnableFarmListProtection,
+        FarmTroopLossThreshold,
     }
 }
